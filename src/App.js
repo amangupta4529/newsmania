@@ -3,6 +3,7 @@ import './App.css';
 import React, { Component } from 'react'
 import Navbar from './components/Navbar'
 import News from './components/News';
+
 import {
   BrowserRouter as Router,
   Switch,
@@ -12,33 +13,32 @@ import {
 
 
 export default class App extends Component {
-  c='aman '
+  apikey=process.env.REACT_APP_NEWS_API;
   render() {
     return (
-      <div>
-        <Navbar/>
+      <div> <Navbar/>
         <Router>
           <Switch>
           <Route exact path="/">
-          <News country='in' category='general'/>
+          <News country='in' apikey={this.apikey} category='general'/>
             </Route>
             <Route exact path="/general">
-          <News country='in' category='general'/>
+          <News country='in' apikey={this.apikey} category='general'/>
             </Route>
             <Route exact path="/business">
-            <News country='in' category='business'/>
+            <News country='in' apikey={this.apikey} category='business'/>
             </Route>
             <Route path="/entertainment">
-            <News country='in' category='entertainment'/>
+            <News country='in' apikey={this.apikey} category='entertainment'/>
             </Route>
             <Route path="/health">
-            <News country='in' category='health'/>
+            <News country='in' apikey={this.apikey} category='health'/>
             </Route>
             <Route path="/sports">
-            <News country='in' category='sports'/>
+            <News country='in' apikey={this.apikey} category='sports'/>
             </Route>
             <Route path="/technology">
-            <News country='in' category='technology'/>
+            <News country='in' apikey={this.apikey} category='technology'/>
             </Route>
           </Switch>
         </Router>
